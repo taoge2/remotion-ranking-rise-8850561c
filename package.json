@@ -27,6 +27,7 @@
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
     "render": "remotion render src/index.ts RankingRise out/ranking-rise.mp4 --codec=h264",
-    "render:still": "remotion still src/index.ts RankingRise out/preview.png --frame=225"
+    "render:still": "remotion still src/index.ts RankingRise out/preview.png --frame=225",
+    "audio:generate": "node scripts/generate-audio.mjs"
   }
 }

@@ -308,7 +308,16 @@ export const RankingRise: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      <Audio src={staticFile("reference-audio.m4a")} premountFor={fps} />
+      <Audio
+        name="Original smooth score"
+        src={staticFile("audio/smooth-score.wav")}
+        premountFor={fps}
+      />
+      <Audio
+        name="Synchronized slide sound design"
+        src={staticFile("audio/slide-sound-design.wav")}
+        premountFor={fps}
+      />
       <div
         style={{ position: "absolute", left: 540, top: 960, perspective: 2800 }}
       >
