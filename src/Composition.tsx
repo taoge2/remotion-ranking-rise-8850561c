@@ -9,6 +9,13 @@ import {
   useVideoConfig,
 } from "remotion";
 import { Audio } from "@remotion/media";
+import { loadFont } from "@remotion/fonts";
+
+loadFont({
+  family: "Noto Sans SC",
+  url: staticFile("fonts/noto-sans-sc-subset.woff2"),
+  weight: "400 800",
+});
 
 type Lab = {
   name: string;
@@ -22,112 +29,112 @@ type Lab = {
 };
 const labs: Lab[] = [
   {
-    name: "Anthropic",
-    model: "claude-fable-5",
+    name: "贵州茅台",
+    model: "600519 · 上交所",
     score: 1509,
     error: 6,
-    icon: "ᴬᴵ",
+    icon: "茅",
     color: "#333",
     modelRank: 1,
     spread: "1 ↔ 4",
   },
   {
-    name: "Meta",
-    model: "muse-spark-1.1",
+    name: "中国平安",
+    model: "601318 · 上交所",
     score: 1490,
     error: 6,
-    icon: "∞",
+    icon: "平",
     color: "#2684ed",
     modelRank: 9,
     spread: "4 ↔ 18",
   },
   {
-    name: "Google",
-    model: "gemini-3-pro",
+    name: "招商银行",
+    model: "600036 · 上交所",
     score: 1486,
     error: 4,
-    icon: "G",
+    icon: "招",
     color: "#4285f4",
     modelRank: 11,
     spread: "5 ↔ 19",
   },
   {
-    name: "Moonshot",
-    model: "kimi-k3-max",
+    name: "中芯国际",
+    model: "688981 · 科创板",
     score: 1485,
     error: 10,
-    icon: "K",
+    icon: "芯",
     color: "#222",
     modelRank: 13,
     spread: "4 ↔ 31",
   },
   {
-    name: "OpenAI",
-    model: "gpt-5.6-sol-xhigh",
+    name: "海光信息",
+    model: "688041 · 科创板",
     score: 1483,
     error: 6,
-    icon: "◉",
+    icon: "光",
     color: "#777",
     modelRank: 15,
     spread: "5 ↔ 29",
   },
   {
-    name: "SpaceXAI",
-    model: "grok-4.20-beta1",
+    name: "寒武纪",
+    model: "688256 · 科创板",
     score: 1474,
     error: 5,
-    icon: "⌁",
+    icon: "寒",
     color: "#333",
     modelRank: 25,
     spread: "13 ↔ 40",
   },
   {
-    name: "Z.ai",
-    model: "glm-5.2-max",
+    name: "隆基绿能",
+    model: "601012 · 上交所",
     score: 1469,
     error: 5,
-    icon: "Z",
+    icon: "隆",
     color: "#222",
     modelRank: 33,
     spread: "18 ↔ 47",
   },
   {
-    name: "Baidu",
-    model: "ernie-5.1",
+    name: "中国移动",
+    model: "600941 · 上交所",
     score: 1468,
     error: 5,
-    icon: "◇",
+    icon: "移",
     color: "#4894e2",
     modelRank: 38,
     spread: "19 ↔ 48",
   },
   {
-    name: "Xiaomi",
-    model: "mimo-v2.5-pro",
+    name: "长江电力",
+    model: "600900 · 上交所",
     score: 1466,
     error: 4,
-    icon: "ᵐⁱ",
+    icon: "江",
     color: "#222",
     modelRank: 40,
     spread: "21 ↔ 51",
   },
   {
-    name: "DeepSeek",
-    model: "deepseek-v4-pro",
+    name: "中微公司",
+    model: "688012 · 科创板",
     score: 1458,
     error: 4,
-    icon: "◒",
+    icon: "微",
     color: "#596fff",
     modelRank: 49,
     spread: "39 ↔ 60",
   },
 ];
-const qwen: Lab = {
-  name: "Alibaba",
-  model: "qwen3.8-max",
+const highlightedCompany: Lab = {
+  name: "长鑫国际",
+  model: "半导体 · 综合榜",
   score: 1496,
   error: 10,
-  icon: "✣",
+  icon: "鑫",
   color: "#5569ff",
   modelRank: 5,
   spread: "1 ↔ 17",
@@ -201,7 +208,7 @@ const Row: React.FC<{ lab: Lab; index: number; selected?: boolean }> = ({
         <span
           style={{
             color: lab.color,
-            fontFamily: "Arial,sans-serif",
+            fontFamily: "Noto Sans SC, sans-serif",
             width: 20,
             textAlign: "center",
             fontWeight: 800,
@@ -214,8 +221,8 @@ const Row: React.FC<{ lab: Lab; index: number; selected?: boolean }> = ({
           <div
             style={{
               fontFamily: selected
-                ? "Courier New,monospace"
-                : "Arial,sans-serif",
+                ? "Noto Sans SC, sans-serif"
+                : "Noto Sans SC, sans-serif",
               fontSize: selected ? 23 : 20,
               fontWeight: selected ? 700 : 500,
               letterSpacing: selected ? 1 : 0,
@@ -297,7 +304,7 @@ export const RankingRise: React.FC = () => {
       style={{
         background:
           "radial-gradient(ellipse at 48% 47%,#f8f8ef 0%,#dedbd1 53%,#bab6ae 100%)",
-        fontFamily: "Arial,sans-serif",
+        fontFamily: "Noto Sans SC, sans-serif",
         overflow: "hidden",
       }}
     >
@@ -332,16 +339,16 @@ export const RankingRise: React.FC = () => {
               opacity: interpolate(t, [0, 5.7, 6.7], [0.3, 0.4, 1], clamp),
             }}
           >
-            <span style={{ marginRight: 195 }}>⌘ Overview</span>
-            <span>Agent</span>
+            <span style={{ marginRight: 195 }}>⌘ 榜单概览</span>
+            <span>行情</span>
             <span
               style={{ padding: 14, background: "#eeece6", borderRadius: 7 }}
             >
-              Chat⌄
+              企业⌄
             </span>
-            <span>Code⌄</span>
-            <span>Image⌄</span>
-            <span>Video⌄</span>
+            <span>行业⌄</span>
+            <span>板块⌄</span>
+            <span>趋势⌄</span>
             <span
               style={{
                 marginLeft: "auto",
@@ -351,7 +358,7 @@ export const RankingRise: React.FC = () => {
                 borderRadius: 6,
               }}
             >
-              Start Voting
+              查看榜单
             </span>
           </div>
           <div
@@ -364,8 +371,10 @@ export const RankingRise: React.FC = () => {
             }}
           >
             <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-              <span style={{ fontFamily: "Georgia,serif", fontSize: 31 }}>
-                Text Arena
+              <span
+                style={{ fontFamily: "Noto Sans SC, sans-serif", fontSize: 31 }}
+              >
+                A股企业榜单
               </span>
               <span
                 style={{
@@ -375,16 +384,14 @@ export const RankingRise: React.FC = () => {
                   padding: "9px 12px",
                 }}
               >
-                🏆 Overall
+                🏆 综合排名
               </span>
             </div>
             <div style={{ fontSize: 14, marginTop: 14 }}>
-              View overall rankings across various AI models in text-to-text
-              tasks across math, coding, creative writing, and other open-ended
-              domains.
+              中国企业排名动画演示 · 展示排名变化。
             </div>
             <div style={{ fontSize: 12, color: "#65655e", marginTop: 20 }}>
-              ◷ Aug 1, 2026 ♧ 7,571,037 votes ♙ 27 labs ⚡ 1 AutoEval
+              ◷ 排名攀升动效 · 11家企业 · 示例分值
             </div>
           </div>
           <div
@@ -398,9 +405,9 @@ export const RankingRise: React.FC = () => {
               color: "#54554f",
             }}
           >
-            ⌘ Show Filters
+            ⌘ 筛选条件
             <span style={{ marginLeft: "auto" }}>
-              Models{" "}
+              企业{" "}
               <span
                 style={{
                   padding: "8px 16px",
@@ -408,7 +415,7 @@ export const RankingRise: React.FC = () => {
                   borderRadius: 6,
                 }}
               >
-                Labs
+                综合榜
               </span>
               | ↗
             </span>
@@ -429,16 +436,16 @@ export const RankingRise: React.FC = () => {
               fontWeight: 600,
             }}
           >
-            <span style={{ textAlign: "center" }}>Lab Rank ↕</span>
-            <span style={{ paddingLeft: 27 }}>Lab ↕</span>
-            <span>Model Score ⓘ ↓</span>
-            <span style={{ textAlign: "center" }}>Model Rank ↕</span>
-            <span style={{ textAlign: "center" }}>Rank Spread ⓘ</span>
+            <span style={{ textAlign: "center" }}>企业排名 ↕</span>
+            <span style={{ paddingLeft: 27 }}>公司 ↕</span>
+            <span>示意评分 ⓘ ↓</span>
+            <span style={{ textAlign: "center" }}>综合位次 ↕</span>
+            <span style={{ textAlign: "center" }}>排名区间 ⓘ</span>
           </div>
           {labs.map((lab, index) => (
             <Row key={lab.name} lab={lab} index={index} />
           ))}
-          <Row lab={qwen} index={10} selected />
+          <Row lab={highlightedCompany} index={10} selected />
         </div>
       </div>
       <AbsoluteFill

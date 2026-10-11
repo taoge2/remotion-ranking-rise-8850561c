@@ -23,12 +23,12 @@ The MP4 is written to `out/ranking-rise.mp4`. Format: 1080 × 1920, 30 fps, 240 
 ## Implementation
 
 - The leaderboard, navigation, labels, score bars, and brand marks are authored with React and CSS. The reference MP4 is never used as the rendered picture.
-- Alibaba/Qwen climbs from the bottom of the ranking to second place; neighboring rows move continuously to make room.
+- The custom highlighted label 长鑫国际 climbs from the bottom of the ranking to second place; neighboring rows move continuously to make room.
 - A frame-driven perspective camera follows the highlighted row, then pulls back and straightens for the complete leaderboard.
 - Warm neutral lighting, row-dependent blur, a mint highlight, a green shadow, and a growing score underline recreate the reference appearance.
 - The extracted reference audio is included as `public/reference-audio.m4a` to retain the original rhythm. Brand marks are approximate typographic symbols.
 
-All animations use Remotion's frame clock and interpolation. `src/Composition.tsx` contains the editable data and keyframes. The labels and scores reproduce the supplied reference and are not live ranking data.
+All animations use Remotion's frame clock and interpolation. `src/Composition.tsx` contains the editable data and keyframes. The company labels use Chinese A-share companies and exchange codes; 长鑫国际 is a user-requested custom display name without a stock code. Scores are illustrative animation values inherited from the reference, not market data. A locally bundled Noto Sans SC font subset keeps Chinese typography consistent across systems.
 
 ## Reference observations
 
@@ -43,3 +43,9 @@ The project passed TypeScript and lint checks and was rendered as a complete 240
 Temporary download signatures and repository-binding credentials are deliberately excluded from the project. No network credentials are needed to preview or render.
 
 Remotion licensing: https://www.remotion.dev/license
+
+## Chinese company edition
+
+The leaderboard includes 贵州茅台 (600519), 中国平安 (601318), 招商银行 (600036), 中芯国际 (688981), 海光信息 (688041), 寒武纪 (688256), 隆基绿能 (601012), 中国移动 (600941), 长江电力 (600900), 中微公司 (688012), and the custom highlighted display name 长鑫国际. The highlighted name is reproduced exactly as requested and is not assigned another company’s ticker.
+
+The local Noto Sans SC font subset is distributed under the SIL Open Font License; see `public/fonts/OFL.txt`.
